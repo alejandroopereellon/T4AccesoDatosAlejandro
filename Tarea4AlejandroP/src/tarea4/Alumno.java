@@ -50,7 +50,8 @@ public class Alumno implements Serializable {
 	 * objeto Alumno, poco a poco va preguntando la informacion necesaria
 	 * comprobando que complen los requisitos, ya sea de texto, de numero o de char.
 	 * 
-	 * @return
+	 * @return objeto de Alumno
+	 * @author Alejandro
 	 */
 	public static Alumno crearAlumno() {
 		@SuppressWarnings("resource")
