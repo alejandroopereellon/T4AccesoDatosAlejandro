@@ -29,7 +29,7 @@ public class Ejercicio1 {
 
 		// Creamos 5 alumnos y almacenamos para caracteristica
 		for (int i = 0; i < 5; i++) {
-			Alumno alumno = Alumno.crearAlumno();
+			Alumno alumno = CrearAlumno.crear();
 			almacenarAlumno(alumno, ficheroAlmacenar);
 		}
 	}
@@ -46,8 +46,7 @@ public class Ejercicio1 {
 	 */
 	private static void almacenarAlumno(Alumno alumno, File rutaGuardado) {
 
-		try (FileOutputStream salida = new FileOutputStream(
-				new File(rutaGuardado + "\\datos" + alumno.getNia() + ".dat"), true);
+		try (FileOutputStream salida = new FileOutputStream(new File(rutaGuardado + "\\datos.dat"), true);
 				DataOutputStream out = new DataOutputStream(salida)) {
 			out.write(alumno.getNia());
 			out.writeUTF(alumno.getNombre());
@@ -56,9 +55,7 @@ public class Ejercicio1 {
 			out.writeUTF(alumno.getCurso());
 			out.writeUTF(alumno.getGrupo());
 			out.writeChar(alumno.getGenero());
-			out.writeInt(alumno.getFechaNacimiento().getDayOfMonth());
-			out.writeInt(alumno.getFechaNacimiento().getMonthValue());
-			out.writeInt(alumno.getFechaNacimiento().getYear());
+			out.writeUTF(alumno.getFechaNacimiento().toString());
 			System.out.println("Se ha completado el proceso correctamente");
 		} catch (Exception e) {
 			e.printStackTrace();
